@@ -1,11 +1,25 @@
+import java.util.Scanner;
 public class Main {
     public static void main(String[] args) {
-        System.out.printf("Hello and welcome!");
-        // Press Mayús+F10 or click the green arrow button in the gutter to run the code.
-        for (int i = 1; i <= 5; i++) {
-        //mmwb
-            //assdasdasd
-            //adasodjasjkdusaiodsaisajdiosajk
+        Scanner scanner = new Scanner(System.in);
+        StringBuilder inputBuilder = new StringBuilder();
+
+        System.out.println("Enter lines of code (type 'exit' to finish):");
+        while (true) {
+            String line = scanner.nextLine();
+            if (line.trim().equals("exit")) {
+                break;
+            }
+            inputBuilder.append(line).append("\n");
         }
+        String input = inputBuilder.toString();
+        Lexer lexer = new Lexer(input);
+        String tokensAsString = "";
+        Token token;
+        while ((token = lexer.getNextToken()).type != TokenType.EOF) {
+            tokensAsString += token.value + " ";
+        }
+        System.out.println("Tokens as string: " + tokensAsString.trim());
     }
 }
+
