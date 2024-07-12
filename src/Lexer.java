@@ -197,7 +197,7 @@ public class Lexer {
                     c = input.charAt(pos);
                 }
                 String keyword = buffer.toString();
-                if (keyword.equals("int") || keyword.equals("class") || keyword.equals("cout") || keyword.equals("delete") || keyword.equals("typeid") || keyword.equals("template") || keyword.equals("namespace") || keyword.equals("using")) {
+                if (keyword.equals("int") || keyword.equals("double") || keyword.equals("cout") || keyword.equals("float") || keyword.equals("String") || keyword.equals("char") || keyword.equals("boolean") || keyword.equals("break")) {
                     currentToken = new Token(TokenType.KEYWORD, keyword);
                 } else {
                     currentToken = new Token(TokenType.IDENTIFIER, keyword);
